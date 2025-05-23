@@ -25,12 +25,13 @@
         const spreadsheetId = '1tZ88bd4ZVMwA-oZG00IwgGwbLPkh2ANzbzMUb7Ptzmc'; // Replace with your Google Sheet ID
         const apiKey = 'AIzaSyCCKJH6wStoEgZcPW-yn8W8k0MehfxTm3Y'; // Replace with your Google Sheets API key
         const sheetBaseUrl = 'https://docs.google.com/spreadsheets/d/' + spreadsheetId + '/edit#gid=';
+        alert(sheetBaseUrl);
 
         // Fetch list of sheets in the spreadsheet
         async function getSheetList() {
             const response = await fetch(
-                `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?fields = sheets.properties & key=${apiKeyapiKey}`
-      );
+                `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?fields=sheets.properties&key=${apiKey}`
+            );
       const data = await response.json();
       return data.sheets.map(sheet => sheet.properties.sheetId);
     }
